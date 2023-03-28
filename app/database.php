@@ -41,14 +41,12 @@ class Database
         $req = $this->getPDO()->prepare($statement);
         $req->execute($attributes);
         $req->setFetchMode(PDO::FETCH_CLASS, $class_name);
-        
+
         if($one){
             $datas = $req->fetch();
         } else{
             $datas = $req->fetchAll();
         }
-
-        $datas = $req->fetchAll(PDO::FETCH_CLASS, $class_name);
         return $datas;
     }
 
