@@ -11,7 +11,7 @@
     <link rel="icon" href="../../favicon.ico">
     <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/starter-template/">
 
-    <title>Starter Template for Bootstrap</title>
+    <title><?= App\App::getTitle() ?></title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"

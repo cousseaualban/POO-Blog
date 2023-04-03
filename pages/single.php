@@ -1,8 +1,27 @@
 <?php
+use App\App;
+use App\Table\Category;
+use App\Table\Article;
 
-$post = $db->prepare('SELECT * FROM articles WHERE id = ?', [$_GET['id']], 'App\table\article', true); 
+$post = Article::find($_GET['id']);
+
+if ($post === false) {
+    App::notFound();
+}
+
+App::setTitle($post->titre);
+
+$category = Category::find($post->category_id);
 ?>
 
-<h1><?= $post->titre; ?></h1>
+<h1>
+    <?= $post->titre; ?>
+</h1>
 
-<p><?= $post->contenu; ?></p>
+<p><em>
+        <?= $category->titre ?>
+    </em></p>
+
+<p>
+    <?= $post->contenu; ?>
+</p>
